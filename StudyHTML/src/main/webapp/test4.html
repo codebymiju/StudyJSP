@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--
+	<form>태그 
+	 -->
+	 
+	 <!-- 입력 양식을 하나로 묶어줄 form 태그 지정 -->
+	<form action="test4_result.html">
+		<!-- <input> 태그를 사용하여 기본 입력 항목 생성 가능 -->
+		<!-- type 속성을 조정하여 다양한 형식의 입력이 가능하도록 변경 가능 -->
+		<input type="text"><br>
+		<input type="text" placeholder="이름을 입력하세요"><br>
+		<!-- value 속성 지정 시 속성값에 해당하는 값을 입력창에 표시 -->
+		<input type="text" name="name" value="홍길동"><br> <!-- 실제 입력되는 데이터(기본값) -->
+		<input type="text" value="홍길동" readonly="readonly"><br>
+		<!-- type = "number" 지정 시 숫자 입력만 가능한 창 -->
+		<input type="number" ><br>
+		<input type="password" placeholder="패스워드를 입력하세요"><br>
+		
+		<hr>
+		
+		취미 : 
+		<input type="checkbox">등산
+		<input type="checkbox" checked="checked">영화감상
+		<input type="checkbox" name="programming">프로그래밍
+		<br>
+		
+		성별 :
+		<input type="radio" name="gender">남
+		<input type="radio" name="gender" checked="checked">여
+		<br>
+		
+		날짜 :
+		<input type="date">
+		<input type="button" value="검색">
+		
+		<hr>
+		
+		직업 :
+		<select>
+			<option>직업을 선택하세요</option>
+			<option selected="selected">개발자</option>
+			<option disabled="disabled">건물주(선택불가)</option>
+			<option>아르바이트생</option>
+		</select>
+		
+		<hr>
+		
+		자기소개 :
+		<textarea rows="5" cols="20"></textarea>
+		
+		<hr>
+		
+		<input type="submit" value="가입">
+		<input type="reset" value="초기화">
+		
+	</form>
+	 
+	 
+</body>
+</html>

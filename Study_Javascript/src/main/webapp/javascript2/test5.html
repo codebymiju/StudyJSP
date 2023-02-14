@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src = "test5.js"></script>
+<script type="text/javascript">
+	/*
+	매개변수도 있고, 리턴값도 있는 함수
+	- 함수 호출 시 값(=전달인자)을 전달하고, 함수 종료시 값을 리턴하는 함수
+	*/
+	
+	// 정수2개(num1, num2)를 전달받아 최대값을 리턴하는 함수 max() 정의
+	
+	// 1. 최대값을 변수에 저장 후 리턴하는 방법 (추천)
+	function max(num1, num2){
+		
+		var maxNum = 0;
+		
+		if(num1 >= num2){
+			maxNum = num1;
+		} else {
+			maxNum = num2;
+		}
+		return maxNum; // 값 자체를 리턴, 메시지는 리턴 하지 않도록
+	}
+	
+	// 2. 조건에 따라 직접 값을 리턴하는 방법
+// 	function max(num1, num2){
+		
+// 		if(num1 >= num2){
+// 			return num1;
+// 		} else {
+// 			return num2;
+// 		}
+// 	}
+	var result = max(30,20);
+	document.write("최대값 = " + result);
+	
+	//=====================================================
+	// test5.js 파일의 login()함수를 호출하여 아이디와 패스워드를 전달한 후
+	// 리턴되는 로그인 결과값을  loginResult 변수에 저장 후 출력
+	var loginResult = login("admin","1234");
+	document.write("<h3>로그인 결과 : " + loginResult + "</h3>");
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

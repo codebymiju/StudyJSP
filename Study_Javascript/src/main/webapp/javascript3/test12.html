@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	  [ 문서 내의 각 요소에 접근하는 방법 - 이미지(img 태그) ]
+	 	1. document.getElementXXX() 또는 documetn.querySelctor() 등의 메서드 사용
+	 	2. 이미지 (img 태그)에 지정된 name 속성값으로 접근
+	 	3. 이미지 (img 태그) 전체(=복수개)를 배열 형태로 접근
+	 */
+  
+	function func1() {	
+// 		1. document.querySelector("#infoArea").innerHTML = "확인";
+		// 2. img 태그에 접근하여 해당 태그의 속성값 출력 -> document.name 속성명.속성명으로 접근
+		// 네임속성을 알기에 명확하게 찾을 수 있음
+// 		document.querySelector("#infoArea").innerHTML = 
+// 			"src = " + document.img1.src + "<br>" +
+// 			"width = " + document.img1.width + "<br>" +
+// 			"height = " + document.img1.height + "<br>" ;
+			
+		// 3. 배열 형식을 사용하여 img 태그에 접근 (document.images[인덱스].속성명)
+		// 내가 사용하려는 이미지가 몇번 인덱스에 있는지 알아야함
+		document.querySelector("#infoArea").innerHTML = 
+			"src = " + document.images[0].src + "<br>" +
+			"width = " + document.images[0].width + "<br>" +
+			"height = " + document.images[0].height + "<br>" ;
+	}
+	
+	function func2() {
+		// 이미지 정보 변경(파일명 : 2.jpg, 가로크기 : 300, 세로크기 :250)
+		document.img1.src = "2.jpg";
+		document.img1.width = "300";
+		document.img1.height = "250";
+	}
+  
+</script>
+</head>
+<body>
+	<h1>test12.html</h1>
+	<img src="1.jpg" name="img1" width="150" height="150" title="펭수1" alt="펭수없음"><br>
+	<button onclick="func1()">이미지 속성정보 출력</button>
+	<button onclick="func2()">이미지 속성정보 변경</button>
+	<div id="infoArea"></div>
+</body>
+</html>

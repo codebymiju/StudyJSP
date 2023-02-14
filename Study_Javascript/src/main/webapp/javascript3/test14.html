@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function printCheckbox() {
+		// 체크박스에서 name 속성이 같은 요소들은 모두 하나의 배열로 관리됨
+		let divInfoArea = document.querySelector("#infoArea");
+// 		divInfoArea.innerHTML = 
+// 			document.fr.hobby[0].value + " : " + document.fr.hobby[0].checked;
+		
+		// 배열 요소를 반복문으로 접근하여 각 요소의 값과 check 상태 확인
+// 		for(let i = 0; i < document.fr.hobby.length; i++) { // 배열 공식 외우기!!
+// 	 		alert(document.fr.hobby[i].value + " : " + document.fr.hobby[i].checked);
+// 		}
+		
+		// 취미 체크박스 요소에 대한 배열 접근 코드가 반복
+		// 반복 제거를 위해 특정 요소까지의 속성을 변수에 저장 가능
+// 		let arrHobby = document.fr.hobby;
+// 		for(let i = 0; i < arrHobby.length; i++) { // 배열 공식 외우기!!
+// 	 		alert(arrHobby[i].value + " : " + arrHobby[i].checked);
+// 		}
+		
+		// 일반 for문 대신 for...of 문 사용 (무조건 처음부터 끝까지 반복한다면 추천, 부분 출력 안됨)
+// 		for(hobby of document.fr.hobby) { // 우변의 배열에서 각각의 객체 > 좌변의 변수에 저장
+// 			alert(hobby.value + " : " + hobby.checked);
+// 		}
+		
+		//===========================================================================
+		// 취미 항목을 하나라도 선택하지 않았을 경우 "취미 하나 이상 선택 필수!" 출력하기
+// 		if (document.fr.hobby.value == "") {
+// 			alert("취미 하나 이상 선택 필수!");
+// 		}
+		
+		let arrHobby = document.fr.hobby;
+// 		if(!arrHobby[0].checked && !arrHobby[1].checked && !arrHobby[2].checked) {
+// 			alert("취미 하나 이상 선택 필수!");
+// 			return; // 현재 함수 실행 종료하고 돌아가기
+// 		}
+
+		// for문을 활용하여 반복 형태로 체크박스 체크 여부 확인
+		let isChecked = false; // 체크 상태를 저장할 변수 선언
+		for(hobby of document.fr.hobby) { // 우변의 배열에서 각각의 객체 > 좌변의 변수에 저장
+			if(hobby.checked){
+				isChecked = true; //체크되었다면 값을 true로 변경
+			}
+		}
+		
+		// 체크 상태 저장변수(isChecked)가 false이면 경고메세지 출력
+		if(!isChecked) { // 체크상태가 false일 경우, 하나도 체크되지 않았을 경우
+			alert("취미 하나 이상 선택 필수!");
+			return; 
+		}// 최종상태 질문이므로 위의 for문과 연결됨
+		
+	}
+	
+	function printRadio() {
+		if(!document.fr.gender[0].checked && !document.fr.gender[1].checked) {
+			alert("성별 선택 필수!")
+		 	return;
+		}
+	}
+	
+// 	function printRadio() {
+// 		let bye = false;
+// 		for(gender of document.fr.gender){
+// 			if(gender.checked){
+// 				bye = true;
+// 			}
+// 		}
+// 		if(!bye){
+// 		 	alert("성별 선택 필수!")
+// 		 	return;
+// 		}
+// 	}	
+
+	function checkAll() {
+		// "전체선택" 체크박스 체크 상태에 따라 항목 체크 상태를 일괄 변경
+		for(hobby of document.fr.hobby) {
+		  hobby.checked = document.fr.hobbyAll.checked;
+		}
+	}
+	
+// 	function checkAll() { // 전체선택 체크시
+// 		if(document.fr.hobbyAll.checked) {
+// 			document.fr.hobby[0].checked = true;
+// 			document.fr.hobby[1].checked = true;
+// 			document.fr.hobby[2].checked = true;
+// 		} else { // 전체선택 체크 해제시
+// 			document.fr.hobby[0].checked = false;
+// 			document.fr.hobby[1].checked = false;
+// 			document.fr.hobby[2].checked = false;
+// 		}
+// 	}
+	
+	
+	
+</script>
+</head>
+<body>
+	<h1>test14.html</h1>
+	<form action="test14_2.html" name="fr">
+		<!-- 
+		체크박스, 라디오버튼 등 묶음으로 관리되는 요소들은
+		name 속성값을 같게 설정할 경우 자동으로 그룹화가 이루어짐
+		 -->
+		 취미 : 
+		 <input type="checkbox" name="hobby" value="게임" checked="checked">게임
+		 <input type="checkbox" name="hobby" value="등산" >등산
+		 <input type="checkbox" name="hobby" value="노래" >노래
+		 <input type="checkbox" name="hobbyAll" value="전체선택" onclick="checkAll()" >전체선택
+		 <input type="button" value = "취미 체크완료" onclick="printCheckbox()">
+		 <br>
+		 성별 :
+		 <input type="radio" name="gender" value="남" >남
+		 <input type="radio" name="gender" value="여" >여
+		 <input type="button" value = "성별 선택완료" onclick="printRadio()">
+		 <br>
+		 <input type="submit" value="회원가입">
+	</form>
+	<div id="infoArea"></div>
+</body>
+</html>

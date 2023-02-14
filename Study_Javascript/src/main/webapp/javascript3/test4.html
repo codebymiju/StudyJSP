@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	[ window 객체 ]
+	- 자바스크립트 최상위(루트) 객체
+	- window 객체 접근 시 window 객체명은 생략 가능
+	
+	[ window 객체의 하위 객체들]
+	*/
+	function showWindowInfo() {
+// 		alert("창 높이 : " + window.innerHeight + "\n창 너비 : " + window.innerWidth);
+//      window객체명 생략 가능
+		alert("창 높이 : " + innerHeight + "\n창 너비 : " + innerWidth); 
+	}
+	function openWindow() {
+// 		window.open("새 창에서 표시할 URL 또는 파일명", "창 이름", "창 옵션(크기,위치 등)")
+// 		window.open("http://www.itwillbs.co.kr", "","");
+//		-> 창 크기 옵션 지정 생략할 경우 기존 웹브라우저의 새 탭에 지정한 대상 열림
+
+//		창 크기 옵션 지정 시 새창으로 대상 열림
+// 		window.open("http://www.itwillbs.co.kr", "","width=300, height=300"); //단위=(px,pixel,픽셀,화소)
+//		창 크기 및 위치(좌측 상단 기준으로 얼마만큼 떨어져 있는지) 지정
+// 		window.open("http://www.itwillbs.co.kr", "","width=300, height=300, left=600, top=400");
+//		창 이름 설정 시 해당 이름과 동일한 이름을 갖는 새 창 열림 기능은
+//  	항상 동일한 창에서 새로운 페이지가 열림
+		window.open("http://www.itwillbs.co.kr", "newWin","width=300, height=300, left=600, top=400");
+	}
+	function openWindow2() { 
+		// URL 대신 파일명 지정 시 해당 파일이 새 창에서 실행됨(열림)
+// 		window.open("test1.html", "","width=300, height=300");
+		window.open("test1.html", "newWin","width=300, height=300");
+	}
+	function closeWindow() {
+		window.close(); // 현재 창 닫기
+	}
+	function openWindow3() {
+		window.open("test4_new_window.html", "이름없음", "width= 800, height=400");
+	}
+	
+	
+	
+</script>
+</head>
+<body>
+	<h1>window 내장 객체</h1>
+	<input type="button" value="창(윈도우) 정보 확인" onclick="showWindowInfo()"><br>
+	<input type="button" value="새 창 열기" onclick="openWindow()"><br>
+	<input type="button" value="새 창 열기2" onclick="openWindow2()"><br>
+	<input type="button" value="현재 창 닫기" onclick="closeWindow()"><br>
+	<!-- "test3_new_window.html열기" 버튼 클릭 시 openWindow3() 함수 호출하고
+	해당 함수 내에서 test3_new_window.html 파일을 새창으로 열기-->
+	<input type="button" value="test4_new_window.html" onclick="openWindow3()"><br>
+</body>
+</html>

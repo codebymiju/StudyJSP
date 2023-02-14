@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function dbCheck() { // id 
+		let id = document.fr.id.value;
+	
+		if(id.length >= 4 && id.length <= 8){
+				window.open("check_id.html", "checkId", "width = 300 , height = 300");
+				document.getElementById("checkIdResult").innerHTML = "중복확인완료";
+		} else {
+				alert("4 ~ 8 글자만 사용가능합니다!");
+// 	 			document.getElementById("checkIdResult").innerHTML = ""; // 옵션
+		}
+		
+	}//dbCheck
+	
+	function checkPw(passwd) { // pw
+			
+// 			let passwd = document.fr.passwd.value; // this로 묶음
+			let spanCheckPasswdResult = document.getElementById("checkPasswdResult");
+			
+			if(passwd.length >= 8 && passwd.length <= 16) {
+				spanCheckPasswdResult.innerHTML = "사용 가능한 패스워드";
+				spanCheckPasswdResult.style.color = "GREEN";
+			} else {
+				spanCheckPasswdResult.innerHTML = "사용 불가능한 패스워드";
+				spanCheckPasswdResult.style.color = "RED";
+			}
+	}//checkPw
+	
+	function checkPw2(confirmPasswd) { // pw
+			
+			let passwd = document.fr.passwd.value;
+		
+			let spanCheckConfirmPasswdResult = document.getElementById("checkConfirmPasswdResult");
+			
+			if(passwd == confirmPasswd) {
+				spanCheckConfirmPasswdResult.innerHTML = "패스워드 일치";
+				spanCheckConfirmPasswdResult.style.color = "GREEN";
+			} else {
+				spanCheckConfirmPasswdResult.innerHTML = "패스워드 불일치";
+				spanCheckConfirmPasswdResult.style.color = "RED";
+			}
+	}//checkPw2
+	
+	function checkId(id1) { // 주민번호
+ 		
+	 		if (id1.length == 6) {
+	 			document.fr.ID2.focus();
+	 		} 
+	}//checkId
+	
+	function checkId2(id2) { // 주민번호
+ 		
+ 		if (id2.length == 6) {
+ 			document.fr.ID2.blur();
+ 		} 
+	}//checkId2
+	
+	function selectDomain(domain) { // email 완료
+ 		document.fr.email2.value = domain;
+ 		
+ 		if(domain != "") {
+ 			document.fr.email2.readOnly = true;
+ 		} else {
+ 			document.fr.email2.readOnly = false;
+ 			document.fr.email2.focus();
+ 		}
+ 		
+ 	}//selectDomain
+ 	
+ 	function checkAll(checked) { // 취미 완료
+ 		for(hobby of document.fr.hobby){
+ 			hobby.checked = checked;
+ 		}
+ 	}//checkAll
+
+</script>
+</head>
+<body>
+	<!-- 회원가입 버튼 클릭 이벤트 또는 하이퍼링크 클릭시 finla_exam_join으로 이동 -->
+	<h1>회원 가입</h1>
+	<form action ="" name ="fr">
+		<table border="1">
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" required="required"></td>
+			</tr>
+			<tr>
+				<td>ID</td>
+				<td>
+					<input type="text" name = "id" placeholder="4 ~ 8글자 사이 입력">
+					<input type="button" value="ID중복확인" onclick="dbCheck()">
+					<span id ="checkIdResult"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td>
+					<input type="password" name = "passwd" placeholder="8 ~ 16글자 사이 입력"
+					onkeyup = "checkPw(this.value)">
+					<span id ="checkPasswdResult"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>비밀번호확인</td>
+				<td>
+					<input type="password" id = "passwd2" onkeyup = "checkPw2(this.value)">
+					<span id ="checkConfirmPasswdResult"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>주민번호</td>
+				<td>
+					<input type="text" name = "ID" onkeyup="checkId(this.value)">
+					-
+					<input type="text" name = "ID2" onkeyup="checkId2(this.value)">
+				</td>
+			</tr>
+			<tr>
+				<td>E-mail</td>
+				<td>
+					<input type="text" name = "email1" >
+					@
+					<input type="text" name = "email2">
+					<select name = "emailDomain" onchange = "selectDomain(this.value)">
+				 		<option selected="selected" value="" >직접입력</option>
+				 		<option value ="naver.com">naver.com</option>
+				 		<option value ="nate.com">nate.com</option>
+				 		<option value ="gmail.com">gmail.com</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>직업</td>
+				<td>
+					<select name = "job">
+					 	<option value = "" >항목을 선택하세요</option>
+					 	<option value = "개발자">개발자</option>
+					 	<option value = "DB엔지니어">DB엔지니어</option>
+					 	<option value = "관리자">관리자</option>
+					 	<option value = "기타">기타</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td>
+					<input type="radio" name="gender" value = "남">남
+					<input type="radio" name="gender" value = "여">여
+				</td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>
+					<input type="checkbox" name="hobby" value = "여행">여행
+					<input type="checkbox" name="hobby" value = "독서">독서
+					<input type="checkbox" name="hobby" value = "게임">게임
+					<input type="checkbox" name="hobbyAll" value = "전체선택"
+					onclick = "checkAll(this.checked)">전체선택
+				</td>
+			</tr>
+			<tr>
+				<td>가입동기</td>
+				<td>
+					<textarea name = "content" rows="10" cols="40"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<input type="submit"  value="회원가입"  >
+					<input type="reset"  value="초기화" >
+					<input type="button"  value="돌아가기" onclick = "history.back()">
+				</td>
+			</tr>
+			
+		</table>
+	</form>
+<!-- 	<a href ="final_exam_join.html">회원가입</a><br> -->
+<!-- 	<input type="button" value = "회원가입" onclick ="location.href = 'final_exam_join.html'"> -->
+	</body>
+</html>

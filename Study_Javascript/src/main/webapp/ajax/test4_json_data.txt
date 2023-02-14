@@ -1,0 +1,32 @@
+[
+	{
+		"id" : "admin",
+		"name" : "관리자",
+		"age" : 0,
+		"agreeRcvSpam" : false,
+		"address" : {
+			"address1" : "부산광역시 부산진구 동천로 109",
+			"address2" : "7층 아이티윌 부산교육센터"
+		}
+	},
+	{
+		"id" : "hong",
+		"name" : "홍길동",
+		"age" : 20,
+		"agreeRcvSpam" : true,
+		"address" : {
+			"address1" : "부산광역시 사하구",
+			"address2" : "1111"
+		}
+	},
+	{
+		"id" : "leess",
+		"name" : "이순신",
+		"age" : 44,
+		"agreeRcvSpam" : false,
+		"address" : {
+			"address1" : "부산광역시 해운대구",
+			"address2" : "222"
+		}
+	}
+]

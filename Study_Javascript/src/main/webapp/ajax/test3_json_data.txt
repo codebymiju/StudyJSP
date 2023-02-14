@@ -1,0 +1,21 @@
+[
+	{
+		"id" : "admin",
+		"name" : "관리자",
+		"age" : 0,
+		"agreeRcvSpam" : false
+	},
+	{
+		"id" : "hong",
+		"name" : "홍길동",
+		"age" : 20,
+		"agreeRcvSpam" : true
+	},
+	{
+		"id" : "leess",
+		"name" : "이신",
+		"age" : 44,
+		"agreeRcvSpam" : false
+	},
+	
+]

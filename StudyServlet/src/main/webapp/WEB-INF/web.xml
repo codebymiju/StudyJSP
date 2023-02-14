@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>StudyServlet</display-name>
+    <!-- 
+  현재 프로젝트(StudyServlet) 로 서블릿 주소 요청이 발생하면
+  톰캣(= 웹 컨테이너)은 무조건 배포서술자 역할을 하는 web.xml 에서 해당 요청 정보 탐색
+  - 만약, 컨텍스트 루트 요청(http://주소:포트번호/프로젝트명)일 경우 
+    <welcome-file-list> 태그의 <welcome-file> 항목에서 특정 파일이 존재하는지 여부 판별 후
+    존재하는 파일이 있을 경우 해당 파일을 실행함
+  - 아니면, 특정 파일을 요청했을 경우 루트(webapp 폴더)를 기준으로 탐색하여
+    일치하는 파일이 있을 경우 해당 파일을 실행함
+  - 만약, 특정 파일명이 아닐 경우(= 서블릿 주소) 매핑된 클래스가 존재하는지 판별
+  -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file><!-- 프로젝트 webapp 폴더에 실제 존재하는 파일-->
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <!-- 서블릿 주소(URL)에 대한 매핑(Mapping) 작업 수행(서블릿 주소와 실행할 클래스 연결 작업) -->
+  <!-- 1. 서블릿 요청 시 실행할 서블릿 클래스에 대한 서블릿 이름 지정 -->  
+  <servlet>
+  	<servlet-name>TestServlet</servlet-name>
+  	<servlet-class>test.TestMyServlet</servlet-class>
+  </servlet>
+  
+ <!-- 2. 서블릿 클래스와 요청 URL(서블릿 주소)에 대한 매핑(= 연결) -->
+  <servlet-mapping>
+  	<servlet-name>TestServlet</servlet-name>
+  	<url-pattern>/myServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 반복 & 실습 -->
+  <servlet>
+  	<servlet-name>MerryChristmas</servlet-name>
+  	<servlet-class>test.TestMyServlet2</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>MerryChristmas</servlet-name>
+  	<url-pattern>/myServlet2</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</web-app>

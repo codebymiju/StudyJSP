@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	[ 선택자 (Selector) ]
+	- HTML 문서에서 특정 대상을 구분하는 용도로 사용되는 속성
+	- id, class, 태그 등을 사용
+	1) id 선택자(#) : 태그 요소를 "유일하게" 구분할 수 있도록 지정하는 선택자
+	2) class 선택자(.) : 태그 요소를 "복수개" 선택할 수 있도록 지정하는 선택자
+	3) 태그 선택자 : 해당 태그를 직접 선택할 수 있도록 지정하는 선택자
+	*/
+	//HTML 태그 요소 중 id 선택자가 "header1"인 태그
+	function func1() {
+		let idHeader1 = document.getElementById("header1");
+	// 	alert(idHeader1); // [object HTMLHeadingElement] 객체 출력됨
+		idHeader1.style.background = "YELLOW";
+		document.getElementById("header2").style.background = "SKYBLUE";
+		//==============================================================
+		// class 선택자를 통해 복수개의 요소에 접근
+		let header5 = document.getElementsByClassName("header5");
+	// 	header5.style.background = "PINK";
+		// for...of 문을 사용하여 header5 객체에 저장된 요소들을 차례대로 꺼내기
+		for(let h5 of header5) { // header5의 각 요소를 차례대로 꺼내서 h5 변수에 저장
+			h5.style.background = "PINK"; // 각 요소에 접근하여 배경색을 PINK 로 변경
+		}
+		//=================================================================
+		// 태그 선택자를 통해 복수개의 요소에 접근 (클래스 접근 방법과 동일)
+		// h4 태그를 복수개 선택하여 배경 색상을 변경ㄴ
+		let tagsH4 = document.getElementsByTagName("h4");
+		for(let h4 of tagsH4) {
+			h4.style.background = "SILVER";
+		}
+		
+	}//func1() 함수 끝
+</script>
+</head>
+<body>
+	<h1>test9.html</h1>
+	<input type="button" value="확인" onclick="func1()">
+	<hr>
+	<h3 id="header1">Header - 1</h3>
+	<h3 id="header2">Header - 2</h3>
+	<h4 id="header3">Header - 3</h4>
+	<h4 id="header4">Header - 4</h4>
+	<hr>
+	<h3 class="header5">Header - 5_1</h3>
+	<h3 class="header5">Header - 5_2</h3>
+</body>
+</html>

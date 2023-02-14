@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>회원 가입</h1>
+	<form>
+	<table border="1">
+	<tr>
+		<td width="100">이름</td>
+		<td width="500">
+		<input type="text">
+		
+		</td>
+	</tr>
+	<tr>
+		<td>ID</td>
+		<td>
+			<input type="text" name = "id" placeholder="4 ~ 8글자 사이 입력">
+			<input type="button" value="ID중복확인">
+			<span id ="checkIdResult"></span>
+		</td>
+	</tr>
+	<tr>
+		<td>비밀번호</td>
+		<td>
+			<input type="password" name = "passwd" placeholder="8 ~ 16글자 사이 입력">
+			<span id ="checkPasswdResult"></span>
+		</td>
+	</tr>
+	<tr>
+		<td>비밀번호확인</td>
+		<td>
+			<input type="password" >
+			<span id ="checkConfirmPasswdResult"></span>
+		</td>
+	</tr>
+	<tr>
+		<td>주민번호</td>
+		<td>
+			<input type="number" >
+			-
+			<input type="number" >
+		</td>
+	</tr>
+	<tr>
+		<td>E-mail</td>
+		<td>
+			<input type="text" >
+			@
+			<input type="text" >
+		<select>
+		 	<option selected="selected">직접입력</option>
+		 	<option>@hanmail.net</option>
+		 	<option>@naver.com</option>
+		 	<option>@nate.com</option>
+		 	<option>@gmail.com</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td>직업</td>
+		<td>
+		<select>
+		 	<option selected="selected">항목을 선택하세요</option>
+		 	<option>무직</option>
+		 	<option>개발자</option>
+		 	<option>서비스업</option>
+		 	<option>농업</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td>성별</td>
+		<td>
+			<input type="radio" name="gender">남
+			<input type="radio" name="gender">여
+		</td>
+	</tr>
+	<tr>
+		<td>취미</td>
+		<td>
+			<input type="checkbox" name="hobby">여행
+			<input type="checkbox" name="hobby">독서
+			<input type="checkbox" name="hobby">게임
+			<input type="checkbox" name="hobby">전체선택
+		</td>
+	</tr>
+	<tr>
+		<td height="100">가입동기</td>
+		<td>
+			<textarea rows="6" cols="40"></textarea>
+		</td>
+	</tr>
+	<tr>
+		<td height="20" colspan="2">
+			<input type="submit"  value="회원가입" >
+			<input type="reset"  value="초기화">
+			<input type="button"  value="돌아가기" onclick = "history.back()">
+		</td>
+		
+	</tr>
+	
+	</table>
+	</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+[
+	{
+		"id" : "admin",
+		"name" : "관자",
+		"age" : 0,
+		"agreeRcvSpam" : false
+	},
+	{
+		"id" : "hong",
+		"name" : "홍s동",
+		"age" : 20,
+		"agreeRcvSpam" : true
+	},
+	{
+		"id" : "leess",
+		"name" : "이순신",
+		"age" : 44,
+		"agreeRcvSpam" : false
+	},
+	{
+		"id" : "admin",
+		"name" : "관리자",
+		"age" : 0,
+		"agreeRcvSpam" : false
+	},
+	{
+		"id" : "hong",
+		"name" : "홍길동",
+		"age" : 20,
+		"agreeRcvSpam" : true
+	}
+	
+]

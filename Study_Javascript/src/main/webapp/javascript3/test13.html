@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// [ form 태그 내의 각 요소에 접근하는 방법 ]
+	// document.form태그 name속성값.접근할태그 name 속성값.속성명 또는 함수명()
+	// -> 속성명 : name, type, value 등
+	
+	function requestFocus() {
+		// 폼태그(name 속성값이 fr) 내의 아이디 입력받는 텍스트 상자(name 속성값 : id)에 접근
+		document.fr.id.focus();
+	}
+	
+	function showInfo() {
+		// 폼 태그 내의 입력 항목 데이터(아이디, 패스워드, 자기소개) 가져와서 출력
+		// -> 입력 데이터 가져오기 : document.폼이름.name속성명.value
+		document.querySelector("#infoArea").innerHTML = 
+		"아이디 : " + document.fr.id.value +"<br>"+
+		"패스워드 : " + document.fr.passwd.value +"<br>" +
+		"자기소개 : " + document.fr.ta.value + "<br>";
+	}
+	
+	function check() {
+		// 폼 태그 입력 항목 중에서 입력되지 않은 항목 존재 여부 판별
+		// required 속성 사용(간단, 추가적 작업시 별도 함수에서 판별해야함)
+		if(document.fr.id.value.length == 0) { // 아이디가 입력되지 않은 경우(document.fr.id.value == "")
+			alert("아이디를 입력하세요!");
+			document.fr.id.focus();
+			return;
+		} else if (document.fr.passwd.value == "") {// 패스워드가 입력되지 않은 경우
+			alert("비밀번호를 입력하세요!");
+			document.fr.passwd.focus();
+			return;
+		} else if (document.fr.ta.value == "") {
+			alert("자기소개를 입력하세요!");
+			document.fr.ta.focus();
+			// 현재 함수 실행을 종료하고 빠져나가기(if문 밑의 submit()함수 실행되지 않도록)
+			return;
+		}
+		
+		// 만약, 모든 항목에 대한 입력이 완료되었을 경우
+		// 자바스크립트 내에서 submit 기능을 수행할 수 있다.
+		// (즉, submit 버튼 아닌 일반 버튼 클릭 시에도 submit 동작 수행 가능)
+		// -> 대상 폼 객체에 submit()함수 호출!
+		document.fr.submit();
+		// -> 주의! if문 외부에서(if문 종료 후) submit() 함수 호출 시
+		//		입력값이 없을 경우에도 submit() 호출될 수 있으므로
+		// 		모든 입력이 정상적으로 되어 있을 경우에만 실행되도록 해야함
+		
+		
+	}
+	
+</script>
+</head>
+<body>
+	<h1>test13.html - form 태그 이벤트</h1>
+	<form action="test13_2.html" name = "fr">
+		<!-- form 태그 내의 입력 항목 요소에 required="required" 속성 지정 시
+		해당 항목 입력되지 않은 상태라면 submit 동작 수행안됨  -->
+		아이디 <input type="text" name="id" required="required">
+		<input type ="button"  value ="focus()" onclick="requestFocus()">
+		<!-- 버튼 클릭 시 폼 태그 요소에 접근하여 작업 수행하는 코드 직접 기술 -->
+		<input type ="button"  value ="blur()" onclick="document.fr.id.blur()">
+		<input type ="button"  value ="select()" onclick="document.fr.id.select()">
+		<br>
+		패스워드 <input type="password" name="passwd" required="required">
+		<br>
+		자기소개 <textarea rows="5" cols="20" name="ta" required="required"></textarea>
+		<br>
+		<input type="button" value="입력값 출력" onclick="showInfo()">
+		<input type="button" value="입력값 확인" onclick="check()">
+		<input type="submit" value="회원가입">
+	</form>
+	<div id = "infoArea"></div>
+</body>
+</html>

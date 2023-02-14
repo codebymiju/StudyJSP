@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!--
+	[표 만들기]
+	 <table></table> : 표 만들기
+	 -> table tag 사이에 자식 태그(표의 형태 결정 : 행, 열 생성)
+	 -> table tag만으로는 테이블 생성 불가
+	 
+	 <tr></tr>(table row) : 테이블 행 생성 - 실제 데이터를 표시하는 곳이 아님
+	 <tr>의 자식태그 : 
+	 <td> - 테이블 열 생성(실제 데이터 표시)
+	 	  -> td 태그 사이에 표 안에 표시될 데이터(텍스트, 이미지 등)을 명시
+	 	  
+	 <th> - 테이블 제목열 생성
+	 	  -> td 태그와 기본적인 역할은 동일하나, 제목을 강조하기 위해 
+	 	  	 굵게, 가운데 정렬이 적용됨
+	 -->
+	 
+	 <!-- 테이블을 생성하기 위해 table 태그 사용 -->
+	 <table border="1">
+	 	<!-- 테이블의 행을 생성하기 위해 <tr> 태그 사용 -->
+		<tr><!-- 1행 생성 -->
+			<!-- 첫 행은 제목열로 데이터를 표시하기 위해 <th> 태그 사용 -->
+			<th>1</th><!-- 1번 행의 1번 열 생성 -->
+			<th>2</th><!-- 1번 행의 2번 열 생성 -->
+			<th>3</th><!-- 1번 행의 3번 열 생성 -->
+		</tr>
+		<tr><!-- 2행 생성 -->
+			<!-- 테이블을 생성하기 위해 table 태그 사용 -->
+			<td>4</td><!-- 2번 행의 1번 열 생성 -->
+			<td>5</td><!-- 2번 행의 2번 열 생성 -->
+			<td rowspan="3">6</td><!-- 2번 행의 3번 열 생성 -->
+		</tr>	 
+		<tr><!-- 3행 생성 -->
+			<!-- 테이블을 생성하기 위해 table 태그 사용 -->
+			<td>7</td>
+			<td>8</td>
+<!-- 			<td>9</td> -->
+		</tr>	 	 
+		<tr><!-- 4행 생성 -->
+			<!-- 테이블을 생성하기 위해 table 태그 사용 -->
+			<td colspan="2">10</td><!-- 4번 행의 1번 열 생성 -->
+<!-- 			<td>11</td>4번 행의 2번 열 생성 -->
+<!-- 			<td>12</td>4번 행의 3번 열 생성 -->
+		</tr>	 	 	 
+	 </table>
+	 
+	 <hr>
+	 
+	 <table border="1">
+	 <tr height="50" bgcolor="SKYBLUE">
+	 	<th width="50">번호</th>
+	 	<th width="100">이름</th>
+	 	<th width="70">국어</th>
+	 	<th width="70">영어</th>
+	 	<th width="70">수학</th>
+	 	<th width="50">비고</th>
+	 </tr>
+	 <tr>
+	 	<td align="center"  bgcolor="YELLOW">1</td>
+	 	<td align="center">홍길동</td>
+	 	<td>80</td>
+	 	<td>70</td>
+	 	<td>100</td>
+	 	<td rowspan="2">없음</td>
+	 </tr>
+	 <tr>
+	 	<td align="center" bgcolor="YELLOW">2</td>
+	 	<td align="center">이순신</td>
+	 	<td>80</td>
+	 	<td>70</td>
+	 	<td>100</td>
+	 </tr>
+	 <tr>
+	 	<td colspan="6" align="center" bgcolor="MAGENTA">총원 : 2명</td>
+	 </tr>
+	 </table>
+	 
+</body>
+</html>
